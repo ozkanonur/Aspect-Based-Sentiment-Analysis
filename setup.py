@@ -1,5 +1,4 @@
 import pathlib
-import aspect_based_sentiment_analysis as absa
 from setuptools import setup
 from setuptools import find_packages
 
@@ -12,8 +11,8 @@ description = 'Aspect Based Sentiment Analysis: ' \
               'Transformer & Interpretability (TensorFlow)'
 
 setup(
-    name='aspect-based-sentiment-analysis',
-    version=absa.__version__,  # Semantic: MAJOR, MINOR, and PATCH
+    name='aspect-based-sentiment-analysis-g',
+    version="1.0.0",  # Semantic: MAJOR, MINOR, and PATCH
     url='https://github.com/ozkanonur/Aspect-Based-Sentiment-Analysis',
     description=description,
     long_description=README,
@@ -34,5 +33,5 @@ setup(
         'optuna',
         'spacy'
     ],
-    python_requires='==3.7.*',
+    python_requires='>=3.7.*',
 )
