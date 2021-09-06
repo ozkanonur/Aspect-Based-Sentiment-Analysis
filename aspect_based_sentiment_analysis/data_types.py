@@ -191,16 +191,16 @@ class Output:
 class OutputBatch:
     """ The model batch output. """
     scores: tf.Tensor  # [example, classes]
-    hidden_states: tf.Tensor  # [example, layer, sequence, embedding]
-    attentions: tf.Tensor  # [example, layer, head, attention, attention]
-    attention_grads: tf.Tensor  # [example, layer, head, attention, attention]
+   # hidden_states: tf.Tensor  # [example, layer, sequence, embedding]
+   # attentions: tf.Tensor  # [example, layer, head, attention, attention]
+   # attention_grads: tf.Tensor  # [example, layer, head, attention, attention]
 
     def __getitem__(self, i: int) -> Output:
         return Output(
             self.scores[i],
-            self.hidden_states[i],
-            self.attentions[i],
-            self.attention_grads[i]
+           # self.hidden_states[i],
+           # self.attentions[i],
+           # self.attention_grads[i]
         )
 
     def __iter__(self) -> Iterable[Output]:

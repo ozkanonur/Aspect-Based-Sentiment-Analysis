@@ -256,10 +256,11 @@ class Pipeline(_Pipeline):
             # We assume that our predictions are correct. This is
             # required to calculate the attention gradients for
             # probing and exploratory purposes.
-            predictions = tf.argmax(logits, axis=-1)
-            labels = tf.one_hot(predictions, depth=3)
-            loss_value = classifier_loss(labels, logits)
-        attention_grads = tape.gradient(loss_value, attentions)
+           # predictions = tf.argmax(logits, axis=-1)
+
+            #labels = tf.one_hot(predictions, depth=3)
+
+            #loss_value = classifier_loss(labels, logits)
 
         # Compute the final prediction scores.
         scores = tf.nn.softmax(logits, axis=1)
@@ -269,15 +270,15 @@ class Pipeline(_Pipeline):
         #   attentions: [input_batch, layer, head, attention, attention]
         # Note that we make an assumption that the embedding's size
         # is the same as the model hidden states.
-        stack = lambda x, order: tf.transpose(tf.stack(x), order)
-        hidden_states = stack(hidden_states, [1, 0, 2, 3])
-        attentions = stack(attentions, [1, 0, 2, 3, 4])
-        attention_grads = stack(attention_grads, [1, 0, 2, 3, 4])
+       # stack = lambda x, order: tf.transpose(tf.stack(x), order)
+       # hidden_states = stack(hidden_states, [1, 0, 2, 3])
+       # attentions = stack(attentions, [1, 0, 2, 3, 4])
+       # attention_grads = stack(attention_grads, [1, 0, 2, 3, 4])
         output_batch = OutputBatch(
             scores=scores,
-            hidden_states=hidden_states,
-            attentions=attentions,
-            attention_grads=attention_grads
+            #hidden_states=hidden_states,
+            #attentions=attentions,
+            #attention_grads=attention_grads
         )
         return output_batch
 
