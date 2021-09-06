@@ -14,7 +14,7 @@ description = 'Aspect Based Sentiment Analysis: ' \
 setup(
     name='aspect-based-sentiment-analysis',
     version=absa.__version__,  # Semantic: MAJOR, MINOR, and PATCH
-    url='https://github.com/ScalaConsultants/Aspect-Based-Sentiment-Analysis',
+    url='https://github.com/ozkanonur/Aspect-Based-Sentiment-Analysis',
     description=description,
     long_description=README,
     long_description_content_type="text/markdown",
